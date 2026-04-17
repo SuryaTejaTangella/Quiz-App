@@ -1,70 +1,170 @@
-# Getting Started with Create React App
+# 🧠 React Quiz App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive and dynamic quiz application built with **React** using the `useReducer` hook for complex state management. This project demonstrates handling asynchronous data, managing multiple UI states, and implementing real-time features like timers and scoring.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+* 📡 Fetches quiz questions from a mock API
+* 🔄 Handles multiple app states:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  * Loading
+  * Error
+  * Ready
+  * Active (Quiz in progress)
+  * Finished
+* ⏱️ Timer for each quiz session
+* 🧮 Dynamic score calculation
+* 🏆 High score tracking
+* 🔁 Restart quiz functionality
+* 📊 Progress tracking during quiz
+* ❌ Error handling for failed API requests
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧠 Core Concepts Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. useReducer (State Management)
 
-### `npm run build`
+* Centralized state logic
+* Predictable state transitions using actions
+* Handles complex interdependent states
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. useEffect (Side Effects)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Fetches data from API on component mount
+* Prevents infinite re-renders using dependency array
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Component-Based Architecture
 
-### `npm run eject`
+* Modular and reusable components
+* Clear separation of concerns
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🧩 State Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```js
+{
+  questions: [],
+  status: "loading", // loading | error | ready | active | finished
+  index: 0,
+  answer: null,
+  points: 0,
+  highscore: 0,
+  secondsRemaining: null
+}
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## ⚙️ Actions Used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Action Type  | Purpose                               |
+| ------------ | ------------------------------------- |
+| dataReceived | Store fetched questions               |
+| dataFailed   | Handle API failure                    |
+| start        | Start quiz                            |
+| newAnswer    | Store selected answer & update points |
+| nextQuestion | Move to next question                 |
+| finish       | End quiz & update highscore           |
+| restart      | Reset quiz                            |
+| tick         | Countdown timer                       |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🔄 App Flow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```text
+Load App → Fetch Questions → Ready Screen → Start Quiz
+→ Answer Questions → Timer Running → Finish → Show Results
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🧱 Project Structure
 
-### Making a Progressive Web App
+```
+src/
+│
+├── components/
+│   ├── Header.js
+│   ├── Main.js
+│   ├── Loader.js
+│   ├── Error.js
+│   ├── StartScreen.js
+│   ├── Question.js
+│   ├── NextButton.js
+│   ├── Progress.js
+│   ├── FinishScreen.js
+│   ├── Footer.js
+│   └── Timer.js
+│
+├── App.js
+└── index.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🛠️ Installation & Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Clone the repository
 
-### Deployment
+```bash
+git clone <your-repo-url>
+cd react-quiz-app
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. Install dependencies
 
-### `npm run build` fails to minify
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Start mock API (json-server)
+
+```bash
+npx json-server --watch data/questions.json --port 8000
+```
+
+4. Run the app
+
+```bash
+npm start
+```
+
+---
+
+## 🌐 API Endpoint
+
+```
+http://localhost:8000/questions
+```
+
+---
+
+## 📌 Key Learning Outcomes
+
+* Understanding when to use `useReducer` over `useState`
+* Managing complex UI states efficiently
+* Handling asynchronous data in React
+* Building scalable component-based applications
+* Implementing real-time features like timers
+
+---
+
+## 🚀 Future Improvements
+
+* Persist highscore using localStorage
+* Add category-based quizzes
+* Add animations and transitions
+* Improve UI/UX design
+* Add backend integration
+
+---
+
+## 👨‍💻 Author
+
+Developed by Surya Teja T as part of hands-on learning in React, focusing on advanced state management using useReducer and building scalable UI applications.
+---
