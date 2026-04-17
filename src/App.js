@@ -13,6 +13,9 @@ import Timer from "./components/Timer";
 
 const SECS_PER_QUESTION = 30;
 
+const API_URL =
+  "https://cdn.jsdelivr.net/gh/SuryaTejaTangella/Quiz-App/data/questions.json";
+
 const initialState = {
   questions: [],
 
@@ -103,7 +106,7 @@ export default function App() {
   );
 
   useEffect(function () {
-    fetch("http://localhost:8000/questions")
+    fetch(API_URL)
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((err) => dispatch({ type: "dataFailed" }));
