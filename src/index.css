@@ -4,8 +4,9 @@
   --color-medium: #ced4da;
   --color-light: #f1f3f5;
 
-  --color-theme: #1098ad;
-  --color-accent: #ffa94d;
+  --color-theme: #0b883b;
+  --color-accent: #be7a32;
+  --color-answer:#b31111;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap");
@@ -30,7 +31,7 @@ body {
 }
 
 .app {
-  display: flex;
+  display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -152,9 +153,14 @@ progress {
   margin-bottom: 3.2rem;
 }
 
+.tick-emoji{
+  justify-content: space-between;
+}
+
 .btn-option {
   width: 100%;
   text-align: left;
+  color:var(--color-light);
 }
 
 .btn-option.correct {
@@ -165,10 +171,13 @@ progress {
 .btn-option.wrong {
   background-color: var(--color-accent);
   border: 2px solid var(--color-accent);
-  color: var(--color-darkest);
+  color: var(--color-light);
 }
 
-.answer {
+.answer.wrong{
+  color:var(--color-light);
+  background-color: var(--color-answer);
+  border: 2px solid var(--color-answer);
   transform: translateX(2rem);
 }
 

@@ -9,7 +9,14 @@ function Options({ question, dispatch, answer }) {
           key={option}
           disabled={hasAnswered}
           onClick={() => dispatch({ type: "newAnswer", payload: index })}>
-          {option}
+         
+          <span className="tick-emoji">
+              {hasAnswered &&
+               (index === question.correctOption) ? "☑️" : (index === answer) ? "❌":""}
+              
+                
+          </span>
+           {option}
         </button>
       ))}
     </div>
