@@ -3,7 +3,15 @@
 An interactive and dynamic quiz application built with **React** using the `useReducer` hook for complex state management. This project demonstrates handling asynchronous data, managing multiple UI states, and implementing real-time features like timers and scoring.
 
 ---
+## Preview
 
+
+
+
+
+
+
+🔗 Live Demo (Vercel): ...https://quiz-app-nine-silk-14.vercel.app/
 ## 🚀 Features
 
 * 📡 Fetches quiz questions from a hosted JSON API (via CDN)
