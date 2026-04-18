@@ -6,7 +6,7 @@ An interactive and dynamic quiz application built with **React** using the `useR
 
 ## 🚀 Features
 
-* 📡 Fetches quiz questions from a mock API
+* 📡 Fetches quiz questions from a hosted JSON API (via CDN)
 * 🔄 Handles multiple app states:
 
   * Loading
@@ -103,6 +103,37 @@ src/
 │
 ├── App.js
 └── index.js
+
+data/
+└── questions.json
+```
+
+---
+
+## 🌐 API Setup (CDN-based)
+
+This project uses a **static JSON file hosted on GitHub and served via jsDelivr CDN**, simulating a real API without requiring a backend.
+
+### API Endpoint
+
+```
+https://cdn.jsdelivr.net/gh/SuryaTejaTangella/Quiz-App/data/questions.json
+```
+
+### Note
+
+The JSON structure is:
+
+```js
+{
+  questions: [ ... ]
+}
+```
+
+So the application extracts data using:
+
+```js
+data.questions
 ```
 
 ---
@@ -122,24 +153,10 @@ cd react-quiz-app
 npm install
 ```
 
-3. Start mock API (json-server)
-
-```bash
-npx json-server --watch data/questions.json --port 8000
-```
-
-4. Run the app
+3. Run the app
 
 ```bash
 npm start
-```
-
----
-
-## 🌐 API Endpoint
-
-```
-http://localhost:8000/questions
 ```
 
 ---
@@ -149,6 +166,7 @@ http://localhost:8000/questions
 * Understanding when to use `useReducer` over `useState`
 * Managing complex UI states efficiently
 * Handling asynchronous data in React
+* Working with hosted JSON as a mock API
 * Building scalable component-based applications
 * Implementing real-time features like timers
 
@@ -160,11 +178,12 @@ http://localhost:8000/questions
 * Add category-based quizzes
 * Add animations and transitions
 * Improve UI/UX design
-* Add backend integration
+* Replace mock API with real backend
 
 ---
 
 ## 👨‍💻 Author
 
-Developed by Surya Teja T as part of hands-on learning in React, focusing on advanced state management using useReducer and building scalable UI applications.
+**Developed by Surya Teja T as part of my transition into software development, focusing on building production-ready React applications using advanced state management techniques like useReducer.**
+
 ---
