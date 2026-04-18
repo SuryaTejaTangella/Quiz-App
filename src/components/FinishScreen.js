@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import confetti from "canvas-confetti";
+
 function FinishScreen({ points, maxPossiblePoints, highscore, dispatch }) {
   const percentage = (points / maxPossiblePoints) * 100;
 
@@ -7,6 +10,10 @@ function FinishScreen({ points, maxPossiblePoints, highscore, dispatch }) {
   if (percentage >= 50 && percentage < 80) emoji = "☺️";
   if (percentage > 0 && percentage < 50) emoji = "😐";
   if (percentage === 0) emoji = "🤦";
+
+  useEffect(() => {
+    confetti({ particleCount: 200, spread: 100, origin: { y: 0.5 } });
+  }, []);
 
   return (
     <>
