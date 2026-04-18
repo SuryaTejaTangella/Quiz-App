@@ -4,14 +4,12 @@ An interactive and dynamic quiz application built with **React** using the `useR
 
 ---
 ## Preview
+<img width="800" height="508" alt="The-React-Quiz-gif" src="https://github.com/user-attachments/assets/bc7b21b4-9e8e-4572-9678-3f733e31412a" />
 
 
 
 
-
-
-
-🔗 Live Demo (Vercel): ...https://quiz-app-nine-silk-14.vercel.app/
+🔗 Live Demo (Vercel): https://quiz-app-nine-silk-14.vercel.app/
 ## 🚀 Features
 
 * 📡 Fetches quiz questions from a hosted JSON API (via CDN)
